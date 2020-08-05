@@ -1,3 +1,6 @@
+import { LowerCasePipe } from '@angular/common';
+import { stringify } from 'querystring';
+
 export class Satellite {
     name: string;
     orbitType: string;
@@ -12,4 +15,12 @@ export class Satellite {
         this.operational = operational;
         this.launchDate = launchDate;
     }
+
+    shouldShowWarning() {
+        //console.log((this.type).toLowerCase() === 'space debris');
+        //return (this.type).toLowerCase() === 'space debris';
+        return this.type === "Space Debris";
+
+    }   
+
 }
