@@ -19,12 +19,9 @@ constructor() {
   window.fetch(satellitesUrl).then(function(response) {
      response.json().then(function(data) {
         let fetchedSatellites = data.satellites;
-        // TODO: loop over satellites
         for(let i = 0; i < fetchedSatellites.length; i++) {
-          // TODO: create a Satellite object using new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
-          new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);        
-          // TODO: add the new Satellite object to sourceList using: this.sourceList.push(satellite);
-          this.sourceList.push(data.satellites[i]);
+          let satelliteTemp = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);        
+          this.sourceList.push(satelliteTemp);
           this.displayList = this.sourceList.slice(0);
         }
      }.bind(this));
@@ -41,8 +38,6 @@ search(searchTerm: string): void {
         matchingSatellites.push(this.sourceList[i]);
      }
   }
-  // assign this.displayList to be the array of matching satellites
-  // this will cause Angular to re-make the table, but now only containing matches
   this.displayList = matchingSatellites;
-}
+  }
 }
