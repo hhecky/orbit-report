@@ -17,11 +17,16 @@ export class Satellite {
 
     }
 
-    shouldShowWarning() {
+    shouldShowWarning(): boolean {
         this.type = this.type.toLowerCase();
-        let boolean = this.type === "space debris";
-        console.log(boolean);
+        let boolean = (this.type === "space debris");
         return boolean;
 
     } 
 }
+
+// shouldShowWarning() {
+//     this.type = this.type.toLowerCase();
+//     return this.type === "space debris";
+
+// } 
